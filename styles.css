@@ -168,7 +168,7 @@ strong { font-weight: 700; }
 }
 
 .section-hero {
-  padding-top: calc(var(--space-xl) + 1rem);
+  padding-top: calc(var(--space-xl) + 1.5rem);
   padding-bottom: var(--space-xl);
   position: relative;
 }
@@ -220,6 +220,81 @@ strong { font-weight: 700; }
   gap: var(--space-md);
   margin-bottom: var(--space-md);
   flex-wrap: wrap;
+}
+
+/* =================================================================
+   HERO EPIGRAPH
+   ================================================================= */
+.hero-epigraph {
+  max-width: 780px;
+  margin: 0 auto var(--space-lg);
+  text-align: center;
+  padding: 2.5rem 2rem;
+  position: relative;
+}
+
+.hero-epigraph::before,
+.hero-epigraph::after {
+  content: "";
+  position: absolute;
+  left: 50%;
+  transform: translateX(-50%);
+  width: 48px;
+  height: 1px;
+  background: var(--gold);
+}
+
+.hero-epigraph::before { top: 0; }
+.hero-epigraph::after { bottom: 0; }
+
+.hero-epigraph blockquote {
+  font-family: var(--font-display);
+  font-size: clamp(1.4rem, 2.4vw, 1.85rem);
+  font-style: italic;
+  font-weight: 400;
+  color: var(--blue-deep);
+  line-height: 1.35;
+  letter-spacing: -0.005em;
+  margin-bottom: 1.25rem;
+  position: relative;
+}
+
+.hero-epigraph blockquote::before {
+  content: "\201C";
+  font-family: var(--font-display);
+  font-size: 3.5rem;
+  color: var(--gold);
+  position: absolute;
+  top: -1.25rem;
+  left: 50%;
+  transform: translateX(-50%);
+  line-height: 1;
+  opacity: 0.35;
+  font-style: normal;
+}
+
+.hero-epigraph figcaption {
+  font-family: var(--font-sans);
+  font-size: 0.78rem;
+  letter-spacing: 0.12em;
+  text-transform: uppercase;
+  color: var(--ink-mute);
+  font-weight: 500;
+}
+
+.hero-epigraph figcaption cite {
+  font-family: var(--font-body);
+  font-style: italic;
+  text-transform: none;
+  letter-spacing: 0;
+  color: var(--ink-soft);
+  font-size: 0.9rem;
+  margin-left: 0.15rem;
+}
+
+@media (max-width: 600px) {
+  .hero-epigraph { padding: 2rem 0.5rem; margin-bottom: 2.5rem; }
+  .hero-epigraph blockquote { font-size: 1.2rem; }
 }
 
 /* =================================================================
@@ -973,6 +1048,157 @@ strong { font-weight: 700; }
   .advisor-block { padding: 1.75rem; }
 
   .section-header-row { flex-direction: column; align-items: flex-start; }
+}
+
+.youtube-block {
+  margin-top: 1rem;
+  padding: 1.75rem 2rem;
+  background: var(--paper-warm);
+  border: 1px solid var(--line);
+  border-left: 4px solid var(--gold);
+  border-radius: 2px;
+  display: flex;
+  align-items: center;
+  gap: 2rem;
+  flex-wrap: wrap;
+}
+
+.youtube-text { flex: 1; min-width: 200px; }
+
+.youtube-label {
+  font-family: var(--font-sans);
+  font-size: 0.68rem;
+  letter-spacing: 0.18em;
+  text-transform: uppercase;
+  color: var(--gold);
+  font-weight: 700;
+  margin-bottom: 0.3rem;
+}
+
+.youtube-title {
+  font-family: var(--font-display);
+  font-size: 1.25rem;
+  font-weight: 600;
+  color: var(--blue-deep);
+  margin-bottom: 0.5rem;
+}
+
+.youtube-block p {
+  color: var(--ink-soft);
+  font-size: 0.96rem;
+  line-height: 1.6;
+  margin: 0;
+}
+
+.student-work-intro {
+  color: var(--ink-mute);
+  font-style: italic;
+  font-size: 0.95rem;
+  margin-bottom: 1.5rem;
+  margin-top: 0.5rem;
+}
+
+.student-work-grid {
+  display: grid;
+  grid-template-columns: repeat(2, 1fr);
+  gap: 1.25rem;
+  margin-bottom: 1rem;
+}
+
+.student-track {
+  background: var(--paper-warm);
+  border: 1px solid var(--line);
+  border-top: 3px solid var(--blue-mid);
+  padding: 1.5rem;
+  border-radius: 2px;
+  display: flex;
+  flex-direction: column;
+  gap: 0.75rem;
+}
+
+.track-header { display: flex; flex-direction: column; gap: 0.3rem; }
+
+.track-label {
+  font-family: var(--font-sans);
+  font-size: 0.68rem;
+  letter-spacing: 0.15em;
+  text-transform: uppercase;
+  color: var(--blue-mid);
+  font-weight: 600;
+}
+
+.track-title {
+  font-family: var(--font-display);
+  font-size: 1.15rem;
+  font-weight: 600;
+  color: var(--blue-deep);
+  margin: 0;
+}
+
+.track-desc {
+  font-size: 0.92rem;
+  color: var(--ink-soft);
+  line-height: 1.55;
+  flex-grow: 1;
+  margin: 0;
+}
+
+@media (max-width: 600px) {
+  .student-work-grid { grid-template-columns: 1fr; }
+}
+
+/* =================================================================
+   DAW CARD
+   ================================================================= */
+.curr-card-daw {
+  grid-column: 1 / -1;
+  border-left: 5px solid var(--blue-mid);
+  background: linear-gradient(135deg, var(--paper) 0%, #f0f4f9 100%);
+}
+
+.daw-platforms {
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  gap: 1.25rem;
+  margin: 1.5rem 0;
+}
+
+.daw-platform {
+  background: var(--paper);
+  border: 1px solid var(--line);
+  border-top: 3px solid var(--blue-mid);
+  padding: 1.25rem;
+  border-radius: 2px;
+}
+
+.daw-platform h5 {
+  font-family: var(--font-display);
+  font-size: 1.05rem;
+  font-weight: 600;
+  color: var(--blue-deep);
+  margin-bottom: 0.6rem;
+}
+
+.daw-platform p {
+  font-size: 0.88rem;
+  line-height: 1.6;
+  color: var(--ink-soft);
+  margin: 0;
+}
+
+.daw-equity-note {
+  font-style: italic;
+  font-size: 0.95rem;
+  color: var(--ink-mute);
+  padding-left: 1rem;
+  border-left: 2px solid var(--blue-mid);
+  margin-top: 0.5rem;
+}
+
+.daw-meta { flex-wrap: wrap; gap: 0.75rem; }
+
+@media (max-width: 900px) {
+  .daw-platforms { grid-template-columns: 1fr; }
 }
 
 /* =================================================================
